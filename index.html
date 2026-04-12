@@ -1,10 +1,137 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-  <title>DE-Hack</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DE-Hack | 同志社大学経済学部 情報ポータル</title>
+    <style>
+        /* サイト全体のデザイン（CSS） */
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f5f7;
+            color: #333;
+        }
+
+        /* ヘッダー部分（紫色ベース） */
+        header {
+            background-color: #4b0082; /* インディゴパープル */
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+        }
+
+        /* ナビゲーションメニュー */
+        nav {
+            background-color: #2d004e;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #d1b3ff; /* ホバー時に明るい紫色に */
+        }
+
+        /* メインコンテンツの枠組み */
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        /* 各セクション（白背景のカード風） */
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid #8a2be2; /* 上部に紫色のアクセントライン */
+        }
+
+        .card h2 {
+            color: #4b0082;
+            border-bottom: 2px solid #f0e6ff;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        ul {
+            line-height: 1.8;
+        }
+
+        /* フッター */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-top: 50px;
+        }
+    </style>
 </head>
 <body>
-  <h1>DE-Hackのウェブサイトへようこそ</h1>
-  <p>ここでは同志社大学経済学部での学びに役立つ情報を公開しています。</p>
+
+    <header>
+        <h1>DE-Hack</h1>
+        <p>同志社大学 経済学部生のための情報ポータル</p>
+    </header>
+
+    <nav>
+        <a href="#news">最新情報</a>
+        <a href="#courses">履修・時間割</a>
+        <a href="#seminars">ゼミ・研究室</a>
+        <a href="#cpa">資格試験</a>
+    </nav>
+
+    <div class="container">
+        
+        <section id="news" class="card">
+            <h2>📢 最新情報</h2>
+            <ul>
+                <li>2026年度 春学期・秋学期の履修モデルを公開しました。</li>
+                <li>計量経済実習など、各種選択科目の情報を更新しました。</li>
+                <li>DE-Hack公式ウェブサイトをオープンしました！</li>
+            </ul>
+        </section>
+
+        <section id="courses" class="card">
+            <h2>📚 履修情報・単位計算</h2>
+            <p>卒業までに必要な単位数の計算方法や、各科目の特徴についてまとめています。効率的な時間割作成（Economics Workshop Advanced等を含む）に役立ててください。</p>
+        </section>
+
+        <section id="seminars" class="card">
+            <h2>🎓 ゼミ・研究室情報</h2>
+            <p>ゲーム理論や行動経済学、実験経済学など、専門的な研究を行う各ゼミの特色を紹介します。本領崇一ゼミや田口聡志ゼミをはじめとする各研究室の入室選考情報も随時追加予定です。</p>
+        </section>
+
+        <section id="cpa" class="card">
+            <h2>✍️ 公認会計士（CPA）試験関連</h2>
+            <p>短答式試験（5月実施予定など）に向けた学習ロードマップや、監査法人でのキャリアを見据えた情報を提供します。</p>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 DE-Hack. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>
