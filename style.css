@@ -1,4 +1,5 @@
-/* サイト全体のデザイン（CSS）*/
+/* サイト全体のデザイン（CSS）
+   元のデザインを再現した共通スタイルです */
 body {
     font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
     margin: 0;
@@ -125,6 +126,32 @@ ul {
     padding: 15px;
     border-radius: 5px;
     margin-top: 20px;
+}
+
+/* 表（大学院進学ページなど） */
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0 20px;
+}
+
+.info-table th,
+.info-table td {
+    border: 1px solid #e0d4f5;
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.info-table th {
+    background-color: #f0e6ff;
+    color: #4b0082;
+}
+
+/* 最終更新日 */
+.updated {
+    color: #888;
+    font-size: 0.9rem;
 }
 
 /* フッター */
