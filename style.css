@@ -1,1 +1,440 @@
-
+/* =========================================================
+   DE-Hack 共通スタイル
+   3ページ（index / courses / seminars）すべてで読み込みます
+   ========================================================= */
+ 
+:root {
+    --ink: #221a2e;          /* 本文 */
+    --muted: #5d5470;        /* 補足テキスト */
+    --purple: #4a1d6e;       /* 同志社パープル */
+    --purple-deep: #2b1043;  /* ヘッダー・見出し */
+    --lilac: #efe9f7;        /* 淡い紫の面 */
+    --paper: #f7f5fa;        /* ページ背景 */
+    --surface: #ffffff;      /* セクション背景 */
+    --line: #ddd5e9;         /* 罫線 */
+    --gold: #a8812a;         /* アクセント（ナビの現在地など） */
+ 
+    --serif: "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
+    --sans: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+ 
+    --width: 960px;
+    --radius: 6px;
+}
+ 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+ 
+html {
+    scroll-behavior: smooth;
+}
+ 
+body {
+    margin: 0;
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.9;
+    color: var(--ink);
+    background-color: var(--paper);
+    -webkit-font-smoothing: antialiased;
+}
+ 
+img {
+    max-width: 100%;
+    height: auto;
+}
+ 
+a {
+    color: var(--purple);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+ 
+a:hover {
+    color: var(--purple-deep);
+    text-decoration-thickness: 2px;
+}
+ 
+:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+}
+ 
+/* ---------- ヘッダー（時間割の罫線を背景に敷いたマストヘッド） ---------- */
+ 
+header {
+    position: relative;
+    color: #fff;
+    background-color: var(--purple-deep);
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+    background-size: 100% 44px, 128px 100%;
+    background-position: 0 -1px, -1px 0;
+    padding: 64px 20px 56px;
+    overflow: hidden;
+}
+ 
+header::after {
+    /* 時間割の「1コマ」を思わせる塗りつぶしブロック */
+    content: "";
+    position: absolute;
+    right: max(20px, calc((100% - var(--width)) / 2));
+    top: 43px;
+    width: 127px;
+    height: 87px;
+    background: rgba(168, 129, 42, 0.28);
+    border-left: 3px solid var(--gold);
+    pointer-events: none;
+}
+ 
+header h1,
+header p {
+    position: relative;
+    max-width: var(--width);
+    margin-left: auto;
+    margin-right: auto;
+}
+ 
+header h1 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: clamp(2.8rem, 9vw, 5.25rem);
+    line-height: 1.05;
+    letter-spacing: 0.01em;
+}
+ 
+header p {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: clamp(1rem, 2.4vw, 1.2rem);
+    color: rgba(255, 255, 255, 0.82);
+    letter-spacing: 0.06em;
+}
+ 
+/* 下層ページはヘッダーを控えめに */
+header.header--sub {
+    padding: 40px 20px 36px;
+}
+ 
+header.header--sub::after {
+    top: 43px;
+    height: 43px;
+}
+ 
+header.header--sub h1 {
+    font-size: clamp(1.6rem, 5vw, 2.25rem);
+    margin-bottom: 4px;
+}
+ 
+header.header--sub p {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(1.35rem, 4vw, 1.9rem);
+    color: #fff;
+    letter-spacing: 0.04em;
+}
+ 
+/* ---------- ナビゲーション ---------- */
+ 
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px 8px;
+    padding: 0 12px;
+    background-color: var(--purple);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+ 
+nav a {
+    display: block;
+    padding: 14px 16px 12px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+    transition: border-color 0.2s, color 0.2s;
+}
+ 
+nav a:hover {
+    color: #fff;
+    border-bottom-color: rgba(255, 255, 255, 0.5);
+}
+ 
+nav a[aria-current="page"] {
+    border-bottom-color: var(--gold);
+}
+ 
+/* ---------- 本文エリア ---------- */
+ 
+.container {
+    max-width: var(--width);
+    margin: 40px auto 0;
+    padding: 0 20px;
+}
+ 
+.card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 36px 40px;
+    margin-bottom: 28px;
+}
+ 
+.card h2 {
+    margin: 0 0 20px;
+    padding-bottom: 14px;
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(1.3rem, 3.2vw, 1.6rem);
+    line-height: 1.5;
+    color: var(--purple-deep);
+    border-bottom: 1px solid var(--line);
+}
+ 
+.card h3 {
+    margin: 32px 0 12px;
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--purple-deep);
+}
+ 
+.card p {
+    margin: 0 0 1em;
+    max-width: 44em;
+}
+ 
+ul {
+    padding-left: 1.3em;
+    line-height: 1.9;
+}
+ 
+ul li + li {
+    margin-top: 0.5em;
+}
+ 
+ul ul {
+    margin-top: 0.4em;
+}
+ 
+/* 最新情報 */
+.news {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+ 
+.news li {
+    margin: 0;
+    padding: 12px 0;
+    border-bottom: 1px dashed var(--line);
+}
+ 
+.news li:first-child {
+    padding-top: 0;
+}
+ 
+.news li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+ 
+/* ---------- ボタン ---------- */
+ 
+.btn {
+    display: inline-block;
+    padding: 12px 20px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #fff;
+    background-color: var(--purple);
+    border: 2px solid var(--purple);
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+ 
+.btn:hover {
+    color: #fff;
+    background-color: var(--purple-deep);
+    border-color: var(--purple-deep);
+}
+ 
+.btn--outline {
+    color: var(--purple);
+    background-color: var(--surface);
+}
+ 
+.btn--outline:hover {
+    color: var(--purple-deep);
+    background-color: var(--lilac);
+    border-color: var(--purple-deep);
+}
+ 
+.btn-row {
+    margin-top: 24px;
+}
+ 
+/* 模試：問題（左）と解答（右）を1行に並べる */
+.downloads {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 12px;
+    margin-top: 24px;
+}
+ 
+.downloads .btn {
+    display: block;
+    text-align: left;
+}
+ 
+/* ---------- テキスト紹介 ---------- */
+ 
+.subject {
+    margin-top: 40px;
+    padding-top: 8px;
+}
+ 
+.subject + .subject {
+    border-top: 1px solid var(--line);
+    padding-top: 32px;
+}
+ 
+.subject h3 {
+    margin-top: 0;
+}
+ 
+.subject h4 {
+    margin: 12px 0;
+    padding: 6px 0 6px 14px;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.7;
+    border-left: 3px solid var(--gold);
+    background: linear-gradient(90deg, var(--lilac), transparent 70%);
+}
+ 
+.covers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin: 8px 0 24px;
+}
+ 
+.covers img {
+    display: block;
+    width: 100px;
+    border: 1px solid var(--line);
+    box-shadow: 2px 3px 0 var(--line);
+}
+ 
+/* ---------- 図・写真 ---------- */
+ 
+.figure {
+    margin: 24px 0;
+    text-align: center;
+}
+ 
+.figure img {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+}
+ 
+.photos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 8px;
+}
+ 
+.photos img {
+    display: block;
+    border-radius: 4px;
+    object-fit: cover;
+}
+ 
+/* ---------- 補足ボックス ---------- */
+ 
+.note {
+    margin-top: 24px;
+    padding: 18px 22px;
+    background-color: var(--lilac);
+    border-left: 4px solid var(--purple);
+    border-radius: 0 var(--radius) var(--radius) 0;
+}
+ 
+.lead {
+    font-size: 1.1rem;
+}
+ 
+/* ---------- フッター ---------- */
+ 
+footer {
+    margin-top: 64px;
+    padding: 28px 20px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    background-color: var(--purple-deep);
+}
+ 
+footer p {
+    margin: 0;
+}
+ 
+/* ---------- スマートフォン ---------- */
+ 
+@media (max-width: 640px) {
+    header {
+        padding: 44px 16px 40px;
+    }
+ 
+    header::after {
+        display: none;
+    }
+ 
+    nav a {
+        padding: 12px 10px 10px;
+        font-size: 0.9rem;
+    }
+ 
+    .container {
+        margin-top: 24px;
+        padding: 0 12px;
+    }
+ 
+    .card {
+        padding: 24px 20px;
+    }
+ 
+    .downloads {
+        grid-template-columns: 1fr;
+    }
+ 
+    .photos img {
+        width: 100%;
+    }
+}
+ 
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+ 
+    * {
+        transition: none !important;
+    }
+}
+ 
