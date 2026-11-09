@@ -148,6 +148,37 @@ ul {
     color: #4b0082;
 }
 
+/* 横に長い表はスマホで横スクロール */
+.table-scroll {
+    overflow-x: auto;
+}
+
+.data-table {
+    min-width: 560px;
+    font-size: 0.95rem;
+}
+
+.data-table tbody tr:nth-child(even) {
+    background-color: #faf7ff;
+}
+
+.info-table .num {
+    text-align: right;
+    white-space: nowrap;
+}
+
+/* 目次 */
+.toc ol {
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* 番号付きの手順 */
+.steps li {
+    margin-bottom: 12px;
+    line-height: 1.8;
+}
+
 /* 最終更新日 */
 .updated {
     color: #888;
